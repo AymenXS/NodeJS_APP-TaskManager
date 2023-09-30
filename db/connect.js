@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
-const connectionString =
-  'mongodb+srv://Aymen:dRYVBc9sUtBKpBo1@nodeexpressprojects.dgpg94f.mongodb.net/03-TASK-MANAGER?retryWrites=true&w=majority';
-
 const connectDB = (url) => {
-  return mongoose.connect(connectionString, {
+  return mongoose.connect(url, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -12,4 +9,4 @@ const connectDB = (url) => {
   });
 };
 
-module.exports = connectDB;
+module.exports = connectDB; // Missing semicolon result in the error: "MongoNetworkError"
