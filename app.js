@@ -5,9 +5,10 @@ const connectDB = require('./db/connect');
 require('dotenv').config();
 
 // Middleware
+app.use(express.static('./public'));
 app.use(express.json());
 
-// Routes
+// // Routes
 app.get('/hello', (req, res) => {
   res.send('Task Manager App');
 });
