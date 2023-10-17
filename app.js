@@ -10,7 +10,7 @@ const errorHandler = require('./middleware/error-handler');
 app.use(express.static('./public'));
 app.use(express.json());
 
-// // Routes
+// Routes
 app.get('/hello', (req, res) => {
   res.send('Task Manager App');
 });

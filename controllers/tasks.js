@@ -2,11 +2,17 @@ const Task = require('../models/Task');
 const asyncWrapper = require('../middleware/async');
 const { createCustomError } = require('../errors/custom-error');
 
+// Model.find(), .create(), .findOne... are mongoose's functions
+
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({});
+
+  res.status(200).json({ status: 'success', data: { tasks, nbHits: tasks.length } });
+
+  // Some Alternative
+
   // res.status(200).json({ tasks });
   // res.status(200).json({ tasks, amount: tasks.length });
-  res.status(200).json({ status: 'success', data: { tasks, nbHits: tasks.length } });
 });
 
 const createTask = asyncWrapper(async (req, res) => {
